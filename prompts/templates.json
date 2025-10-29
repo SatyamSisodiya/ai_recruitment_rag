@@ -1,0 +1,29 @@
+{
+  "jd_schema": {
+    "type": "object",
+    "properties": {
+      "requirements": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {"type": "string"},
+            "type": {"type": "string"},
+            "text": {"type": "string"},
+            "importance": {"type": "string"}
+          },
+          "required": ["id", "type", "text"]
+        }
+      }
+    }
+  },
+  "resume_schema": {
+    "type": "object",
+    "properties": {
+      "contact": {"type": "object"},
+      "skills": {"type": "array", "items": {"type": "string"}},
+      "education": {"type": "array", "items": {"type": "string"}},
+      "experiences": {"type": "array"}
+    }
+  }
+}
