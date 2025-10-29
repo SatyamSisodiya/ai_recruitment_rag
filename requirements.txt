@@ -9,7 +9,7 @@ python-docx
 pdfplumber
 pytesseract
 Pillow
-langchain
+langchain==1.0.2
 openai
 scikit-learn
 pymcdm
@@ -18,3 +18,4 @@ tqdm
 python-multipart
 uvicorn
 fastapi
+langchain-google-genai==3.0.0
