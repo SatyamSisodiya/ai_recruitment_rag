@@ -27,21 +27,14 @@ except Exception:
     # Secrets may not be configured; ignore silently
     pass
 
+# Inform user if OCR unavailable (e.g., on free hosting without Tesseract)
+from ingestion.ocr import ocr_available
+if not ocr_available():
+    st.warning("Image OCR disabled on this deployment (Tesseract not installed). PDF text layer will be used when available.")
+
 # Sidebar: index building and settings
 with st.sidebar:
-    st.header("Index & Models")
-    # Model & API key controls (session-only)
-    model_current = os.environ.get("GEMINI_MODEL", "")
-    model_input = st.text_input("Gemini model", value=model_current or "gemini-2.0-flash", help="e.g., gemini-pro, gemini-1.5-flash-001")
-    if model_input and model_input != model_current:
-        os.environ["GEMINI_MODEL"] = model_input
-        st.caption(f"Using model: {model_input}")
-
-    api_key_current = os.environ.get("GEMINI_API_KEY", "")
-    api_key_input = st.text_input("Gemini API key", value=api_key_current, type="password")
-    if api_key_input and api_key_input != api_key_current:
-        os.environ["GEMINI_API_KEY"] = api_key_input
-        st.caption("API key set for this session")
+    st.header("Index")
     if "indexer" not in st.session_state:
         st.session_state.indexer = None
     if st.button("Build / Rebuild Index from data folder"):

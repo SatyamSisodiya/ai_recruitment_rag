@@ -34,14 +34,14 @@ class GeminiRAG:
         )
 
         # Fallback list for common Gemini model names if the configured one is unavailable
+        # Put gemini-2.0-flash first as primary default, followed by related fallbacks
         self._model_candidates = [
-            model_name,
-            
             "gemini-2.0-flash",
             "gemini-2.0-flash-lite",
             "gemini-2.5-flash",
             "gemini-2.5-flash-lite",
             "gemini-2.5-pro",
+            model_name,  # include configured model (in case custom)
         ]
 
     def _compose_prompt(self, instruction: str, contexts: list, json_schema: dict = None) -> str:

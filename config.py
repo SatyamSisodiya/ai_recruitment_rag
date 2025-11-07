@@ -4,7 +4,7 @@ import os
 # Gemini setup
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 # Default to a broadly available model on v1beta; can be overridden via env
-GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-pro")
+GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash")
 GEMINI_TEMPERATURE = float(os.environ.get("GEMINI_TEMPERATURE", "0.0"))
 
 # Embeddings

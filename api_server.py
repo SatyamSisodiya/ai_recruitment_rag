@@ -14,7 +14,7 @@ import shutil, os, json
 import pandas as pd
 import numpy as np
 
-app = FastAPI(title="AI Recruitment Assistant (RAG)")
+app = FastAPI(title="AI Recruitment Assistantance System")
 
 app.add_middleware(
     CORSMiddleware,
