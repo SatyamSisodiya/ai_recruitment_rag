@@ -17,7 +17,7 @@ from utils import ensure_dir, timestamp, write_json
 import re
 
 st.set_page_config(page_title="AI Recruitment RAG", layout="wide")
-st.title("AI Recruitment Assistance System (RAG)")
+st.title("AI Recruitment Assistance System")
 
 # Optional: load Gemini API key from Streamlit secrets if provided
 try:
